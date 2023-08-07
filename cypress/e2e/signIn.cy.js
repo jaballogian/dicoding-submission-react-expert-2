@@ -41,9 +41,9 @@ describe('Login spec', () => {
   });
 
   it('should display alert when email and password are wrong', () => {
-    cy.get('input[placeholder="Enter your email address here"]').type('test@gmail.com');
+    cy.get('input[placeholder="Enter your email address here"]').type('test@gmail.com', { force: true });
 
-    cy.get('input[placeholder="Enter your password here"]').type('test password');
+    cy.get('input[placeholder="Enter your password here"]').type('test password', { force: true });
 
     cy.get('button').contains(/^Sign In$/).click({ force: true });
 
@@ -55,9 +55,9 @@ describe('Login spec', () => {
   it('should display Home page when email and password are correct', () => {
     cy.visit('http://localhost:3000/sign-in');
 
-    cy.get('input[placeholder="Enter your email address here"]').type('alberteinstein@gmail.com');
+    cy.get('input[placeholder="Enter your email address here"]').type('alberteinstein@gmail.com', { force: true });
 
-    cy.get('input[placeholder="Enter your password here"]').type('albert einstein');
+    cy.get('input[placeholder="Enter your password here"]').type('albert einstein', { force: true });
 
     cy.get('button').contains(/^Sign In$/).click({ force: true });
 
